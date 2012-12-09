@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-g
 Plugin URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Tags: Pixelating, image, slideshow, gallery
 Requires at least: 3.0
-Tested up to: 3.4.2
-Stable tag: 5.0
+Tested up to: 3.5
+Stable tag: 5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -89,6 +89,9 @@ New demo link, www.gopiplus.com
 Tested up to 3.4.2
 Short code option available to load the gallery into posts and pages
 
+= 5.1 =
+Tested up to 3.5
+
 == Upgrade Notice ==
 
 = 1.0 =		
@@ -107,3 +110,6 @@ New demo link, www.gopiplus.com
 = 5.0 =
 Tested up to 3.4.2
 Short code option available to load the gallery into posts and pages
+
+= 5.1 =
+Tested up to 3.5

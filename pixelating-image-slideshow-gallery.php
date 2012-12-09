@@ -1,11 +1,10 @@
 <?php
-
 /*
 Plugin Name: Pixelating image slideshow gallery
 Plugin URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Description: This is your normal hyperlinked image slideshow, but in IE the added images are "pixelated" into view. And its good cross browser script.  
 Author: Gopi.R
-Version: 5.0
+Version: 5.1
 Author URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Donate link: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 License: GPLv2 or later
@@ -313,13 +312,13 @@ function pisg_widget_init()
 
 function pisg_deactivation() 
 {
+	// No action required.
 }
 
 function pisg_add_to_menu() 
 {
 	add_options_page('Pixelating image slideshow gallery', 'Pixelating image slideshow gallery', 'manage_options', __FILE__, 'pisg_admin_option' );
 	add_options_page('Pixelating image slideshow gallery', '', 'manage_options', "pixelating-image-slideshow-gallery/image-management.php",'' );
-	
 }
 
 add_action('admin_menu', 'pisg_add_to_menu');

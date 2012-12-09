@@ -190,4 +190,4 @@
     </tr>
   </table>
 </div>
-Check official website for more info <a target="_blank" href='http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/'>Click here</a>.  
+Check official website for more information <a target="_blank" href='http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/'>Click here</a>.  

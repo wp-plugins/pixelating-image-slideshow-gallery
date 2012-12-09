@@ -8,7 +8,6 @@
 ##################################################################################################################################
 */
 
-
 function pisg_submit()
 {
 	if(document.pisg_form.pisg_path.value=="")
@@ -23,18 +22,6 @@ function pisg_submit()
 		document.pisg_form.pisg_link.focus();
 		return false;
 	}
-	//else if(document.pisg_form.pisg_target.value=="")
-//	{
-//		alert("Please enter the target status.")
-//		document.pisg_form.pisg_target.focus();
-//		return false;
-//	}
-	//else if(document.pisg_form.pisg_title.value=="")
-//	{
-//		alert("Please enter the image title.")
-//		document.pisg_form.pisg_title.focus();
-//		return false;
-//	}
 	else if(document.pisg_form.pisg_type.value=="")
 	{
 		alert("Please enter the gallery type.")
