@@ -4,7 +4,7 @@ Plugin Name: Pixelating image slideshow gallery
 Plugin URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Description: This is your normal hyperlinked image slideshow, but in IE the added images are "pixelated" into view. And its good cross browser script.  
 Author: Gopi.R
-Version: 5.1
+Version: 6.0
 Author URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Donate link: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 License: GPLv2 or later
@@ -13,6 +13,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 global $wpdb, $wp_version;
 define("WP_pisg_TABLE", $wpdb->prefix . "pisg_superb_gallery");
+define("WP_pisg_UNIQUE_NAME", "pisg");
+define("WP_pisg_TITLE", "Pixelating image slideshow gallery");
+define('WP_pisg_LINK', 'Check official website for more information <a target="_blank" href="http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery">click here</a>');
+define('WP_pisg_FAV', 'http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery');
 
 function pisg_show() 
 {
@@ -193,16 +197,16 @@ function pisg_install()
 		$sSql = $sSql . ")";
 		$wpdb->query($sSql);
 		$sSql = "INSERT INTO `". WP_pisg_TABLE . "` (`pisg_path`, `pisg_link`, `pisg_target` , `pisg_title` , `pisg_order` , `pisg_status` , `pisg_type` , `pisg_date`)"; 
-		$sSql = $sSql . "VALUES ('".get_option('siteurl')."/wp-content/plugins/pixelating-image-slideshow-gallery/images/sing_1.jpg','#','_blank','Welcome to gopiplus.com website.','1', 'YES', 'widget', '0000-00-00 00:00:00');";
+		$sSql = $sSql . "VALUES ('".get_option('siteurl')."/wp-content/plugins/pixelating-image-slideshow-gallery/images/sing_1.jpg','#','_blank','','1', 'YES', 'WIDGET', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 		$sSql = "INSERT INTO `". WP_pisg_TABLE . "` (`pisg_path`, `pisg_link`, `pisg_target` , `pisg_title` , `pisg_order` , `pisg_status` , `pisg_type` , `pisg_date`)"; 
-		$sSql = $sSql . "VALUES ('".get_option('siteurl')."/wp-content/plugins/pixelating-image-slideshow-gallery/images/sing_2.jpg','#','_blank','In this domain you can find some usefull plugins.','2', 'YES', 'widget', '0000-00-00 00:00:00');";
+		$sSql = $sSql . "VALUES ('".get_option('siteurl')."/wp-content/plugins/pixelating-image-slideshow-gallery/images/sing_2.jpg','#','_blank','','2', 'YES', 'WIDGET', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 		$sSql = "INSERT INTO `". WP_pisg_TABLE . "` (`pisg_path`, `pisg_link`, `pisg_target` , `pisg_title` , `pisg_order` , `pisg_status` , `pisg_type` , `pisg_date`)"; 
-		$sSql = $sSql . "VALUES ('".get_option('siteurl')."/wp-content/plugins/pixelating-image-slideshow-gallery/images/sing_3.jpg','#','_blank','Wordpress, joomla, plugins are available in this website.','3', 'YES', 'widget', '0000-00-00 00:00:00');";
+		$sSql = $sSql . "VALUES ('".get_option('siteurl')."/wp-content/plugins/pixelating-image-slideshow-gallery/images/sing_3.jpg','#','_blank','','3', 'YES', 'WIDGET', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 		$sSql = "INSERT INTO `". WP_pisg_TABLE . "` (`pisg_path`, `pisg_link`, `pisg_target` , `pisg_title` , `pisg_order` , `pisg_status` , `pisg_type` , `pisg_date`)"; 
-		$sSql = $sSql . "VALUES ('".get_option('siteurl')."/wp-content/plugins/pixelating-image-slideshow-gallery/images/sing_4.jpg','#','_blank','Please post your comments and feedback about this site.','4', 'YES', 'widget', '0000-00-00 00:00:00');";
+		$sSql = $sSql . "VALUES ('".get_option('siteurl')."/wp-content/plugins/pixelating-image-slideshow-gallery/images/sing_4.jpg','#','_blank','','4', 'YES', 'WIDGET', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 	}
 	add_option('pisg_title', "Pixelating gallery");
@@ -210,7 +214,7 @@ function pisg_install()
 	add_option('pisg_duration', "1");
 	add_option('pisg_slidespeed', "3000");
 	add_option('pisg_random', "YES");
-	add_option('pisg_type', "widget");
+	add_option('pisg_type', "WIDGET");
 }
 
 function pisg_widget($args) 
@@ -231,70 +235,30 @@ function pisg_widget($args)
 
 function pisg_admin_option() 
 {
-	echo "<div class='wrap'>";
-	echo "<h2>Pixelating image slideshow gallery</h2>"; 
-	$pisg_title = get_option('pisg_title');
-	$pisg_maxsquare = get_option('pisg_maxsquare');
-	$pisg_duration = get_option('pisg_duration');
-	$pisg_slidespeed = get_option('pisg_slidespeed');
-	$pisg_random = get_option('pisg_random');
-	$pisg_type = get_option('pisg_type');
-	if (@$_POST['pisg_submit']) 
+	global $wpdb;
+	$current_page = isset($_GET['ac']) ? $_GET['ac'] : '';
+	switch($current_page)
 	{
-		$pisg_title = stripslashes($_POST['pisg_title']);
-		$pisg_maxsquare = stripslashes($_POST['pisg_maxsquare']);
-		$pisg_duration = stripslashes($_POST['pisg_duration']);
-		$pisg_slidespeed = stripslashes($_POST['pisg_slidespeed']);
-		$pisg_random = stripslashes($_POST['pisg_random']);
-		$pisg_type = stripslashes($_POST['pisg_type']);
-		
-		update_option('pisg_title', $pisg_title );
-		update_option('pisg_maxsquare', $pisg_maxsquare );
-		update_option('pisg_duration', $pisg_duration );
-		update_option('pisg_slidespeed', $pisg_slidespeed );
-		update_option('pisg_random', $pisg_random );
-		update_option('pisg_type', $pisg_type );
+		case 'edit':
+			include('pages/image-management-edit.php');
+			break;
+		case 'add':
+			include('pages/image-management-add.php');
+			break;
+		case 'set':
+			include('pages/image-setting.php');
+			break;
+		default:
+			include('pages/image-management-show.php');
+			break;
 	}
-	?><form name="form_woo" method="post" action="">
-	<?php
-	echo '<p>Title:<br><input  style="width: 450px;" maxlength="200" type="text" value="';
-	echo $pisg_title . '" name="pisg_title" id="pisg_title" /> Widget title.</p>';
-	
-	echo '<p>Maxsquare:<br><input  style="width: 100px;" maxlength="200" type="text" value="';
-	echo $pisg_maxsquare . '" name="pisg_maxsquare" id="pisg_maxsquare" /> (only number).</p>';
-	
-	echo '<p>Duration:<br><input  style="width: 100px;" maxlength="200" type="text" value="';
-	echo $pisg_duration . '" name="pisg_duration" id="pisg_duration" /> only number.</p>';
-	
-	echo '<p>Slidespeed:<br><input  style="width: 100px;" maxlength="4" type="text" value="';
-	echo $pisg_slidespeed . '" name="pisg_slidespeed" id="pisg_slidespeed" /> Only Number / Pause between content change (millisec).</p>';
-	
-	echo '<p>Random :<br><input  style="width: 100px;" type="text" value="';
-	echo $pisg_random . '" name="pisg_random" id="pisg_random" /> (YES/NO)</p>';
-	
-	echo '<p>Type:<br><input  style="width: 150px;" type="text" value="';
-	echo $pisg_type . '" name="pisg_type" id="pisg_type" /> This field is to group the images.</p>';
-	
-	echo '<input name="pisg_submit" id="pisg_submit" class="button-primary" value="Submit" type="submit" />';
-	?>
-	</form>
-	<table width="100%">
-		<tr>
-		  <td align="right"><input name="text_management" lang="text_management" class="button-primary" onClick="location.href='options-general.php?page=pixelating-image-slideshow-gallery/image-management.php'" value="Go to - Image Management" type="button" />
-			<input name="setting_management" lang="setting_management" class="button-primary" onClick="location.href='options-general.php?page=pixelating-image-slideshow-gallery/pixelating-image-slideshow-gallery.php'" value="Go to - Gallery Setting" type="button" />
-		  </td>
-		</tr>
-	  </table>
-	<?php
-	include_once("help.php");
-	echo "</div>";
 }
 
 function pisg_control()
 {
-	echo '<p>Pixelating image slideshow gallery.<br><br> To change the setting goto "Pixelating image slideshow gallery" link under SETTING menu.';
-	echo ' <a href="options-general.php?page=pixelating-image-slideshow-gallery/pixelating-image-slideshow-gallery.php">';
-	echo 'click here</a></p>';
+	echo '<p>To change the setting goto <b>Pixelating image slideshow gallery</b> link under Settings menu.';
+	echo ' <a href="options-general.php?page=pixelating-image-slideshow-gallery">click here</a></p>';
+	echo WP_pisg_LINK;
 }
 
 function pisg_widget_init() 
@@ -317,8 +281,11 @@ function pisg_deactivation()
 
 function pisg_add_to_menu() 
 {
-	add_options_page('Pixelating image slideshow gallery', 'Pixelating image slideshow gallery', 'manage_options', __FILE__, 'pisg_admin_option' );
-	add_options_page('Pixelating image slideshow gallery', '', 'manage_options', "pixelating-image-slideshow-gallery/image-management.php",'' );
+	if (is_admin()) 
+	{
+		add_options_page('Pixelating image slideshow gallery', 'Pixelating image slideshow gallery', 'manage_options', "pixelating-image-slideshow-gallery", 'pisg_admin_option' );
+		//add_options_page('Pixelating image slideshow gallery', '', 'manage_options', "pixelating-image-slideshow-gallery/image-management.php",'' );
+	}
 }
 
 add_action('admin_menu', 'pisg_add_to_menu');

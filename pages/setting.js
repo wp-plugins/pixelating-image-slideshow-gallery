@@ -52,14 +52,14 @@ function pisg_delete(id)
 {
 	if(confirm("Do you want to delete this record?"))
 	{
-		document.frm_pisg_display.action="options-general.php?page=pixelating-image-slideshow-gallery/image-management.php&AC=DEL&DID="+id;
+		document.frm_pisg_display.action="options-general.php?page=pixelating-image-slideshow-gallery&ac=del&did="+id;
 		document.frm_pisg_display.submit();
 	}
 }	
 
 function pisg_redirect()
 {
-	window.location = "options-general.php?page=pixelating-image-slideshow-gallery/image-management.php";
+	window.location = "options-general.php?page=pixelating-image-slideshow-gallery";
 }
 
 function pisg_help()

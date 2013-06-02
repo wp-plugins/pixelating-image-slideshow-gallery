@@ -4,9 +4,9 @@ Donate link: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-
 Author URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Plugin URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Tags: Pixelating, image, slideshow, gallery
-Requires at least: 3.0
-Tested up to: 3.5
-Stable tag: 5.1
+Requires at least: 3.4
+Tested up to: 3.6
+Stable tag: 6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -21,7 +21,7 @@ Check official website for live demo [http://www.gopiplus.com/work/2010/10/13/pi
 *   [Comments/Suggestion](http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/)		
 *   [About author](http://www.gopiplus.com/work/)			
 
-This is your normal hyperlinked image slideshow, but in IE the added images are "pixelated" into view. And it’s good cross browser script.
+Pixelating image slideshow gallery wordpress plugin is the normal hyper linked image slide-show, but in IE the added images are pixelated into view.  And it’s good cross browser script (ordinary fade in effect in Mozilla browser). No need any coding language to customize this plugin. just drag and drop the widget into your sidebar and check the frond end you can able to see the pixelating image gallery with default images. to add your own images go to plugin image management page and update your images.
 
 *   Simple.
 *   Image slideshow gallery.
@@ -68,6 +68,7 @@ Tags: Pixelating, image, slideshow, gallery
 == Screenshots ==
 
 1. Admin image management.
+
 2. Front end.
 
 == Changelog ==
@@ -92,6 +93,11 @@ Short code option available to load the gallery into posts and pages
 = 5.1 =
 Tested up to 3.5
 
+= 6.0 =
+Tested up to 3.6
+Added some security feature.
+New admin look.
+
 == Upgrade Notice ==
 
 = 1.0 =		
@@ -113,3 +119,8 @@ Short code option available to load the gallery into posts and pages
 
 = 5.1 =
 Tested up to 3.5
+
+= 6.0 =
+Tested up to 3.6
+Added some security feature.
+New admin look.
