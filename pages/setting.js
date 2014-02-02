@@ -1,6 +1,6 @@
 /*
 ##################################################################################################################################
-###### Project   : Pixelating image slideshow gallery  																		######
+###### Project   : Pixelating image slideshow gallery 6.1 																	######
 ###### File Name : setting.js                   																			######
 ###### Purpose   : This javascript is to authenticate the form.  															######
 ###### Author    : Gopi.R (http://www.gopiplus.com/work/)                        											######

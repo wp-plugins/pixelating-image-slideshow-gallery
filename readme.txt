@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-g
 Plugin URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Tags: Pixelating, image, slideshow, gallery
 Requires at least: 3.4
-Tested up to: 3.6
-Stable tag: 6.0
+Tested up to: 3.8
+Stable tag: 6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -21,7 +21,7 @@ Check official website for live demo [http://www.gopiplus.com/work/2010/10/13/pi
 *   [Comments/Suggestion](http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/)		
 *   [About author](http://www.gopiplus.com/work/)			
 
-Pixelating image slideshow gallery wordpress plugin is the normal hyper linked image slide-show, but in IE the added images are pixelated into view.  And it’s good cross browser script (ordinary fade in effect in Mozilla browser). No need any coding language to customize this plugin. just drag and drop the widget into your sidebar and check the frond end you can able to see the pixelating image gallery with default images. to add your own images go to plugin image management page and update your images.
+Pixelating image slideshow gallery wordpress plugin is the normal hyper linked image slide-show, but in IE the added images are pixelated into view.  And its good cross browser script (ordinary fade in effect in Mozilla browser). No need any coding language to customize this plugin. just drag and drop the widget into your sidebar and check the frond end you can able to see the pixelating image gallery with default images. to add your own images go to plugin image management page and update your images.
 
 *   Simple.
 *   Image slideshow gallery.
@@ -31,7 +31,7 @@ We can configure this plug-in in 2 different way.
 
 **1. Drag and drop the widget!**
 
-Go to widget menu and drag and drop the “Pixelating image slideshow gallery” widget to your sidebar location. <br />
+Go to widget menu and drag and drop the Pixelating image slideshow gallery widget to your sidebar location. <br />
 
 **2. Copy and past the mentioned code to your desired template location.**		
 <code>&lt;?php if (function_exists (pisg_show)) pisg_show(); ?&gt;</code> 		
@@ -67,9 +67,9 @@ Tags: Pixelating, image, slideshow, gallery
 
 == Screenshots ==
 
-1. Admin image management.
+1. Front end. http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 
-2. Front end.
+2. Admin image management. http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 
 == Changelog ==
 
@@ -98,6 +98,11 @@ Tested up to 3.6
 Added some security feature.
 New admin look.
 
+= 6.1 =
+1. Tested up to 3.8
+2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
+Plugin *.po file (pixelating-image.po) available in the languages folder.
+
 == Upgrade Notice ==
 
 = 1.0 =		
@@ -124,3 +129,8 @@ Tested up to 3.5
 Tested up to 3.6
 Added some security feature.
 New admin look.
+
+= 6.1 =
+1. Tested up to 3.8
+2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
+Plugin *.po file (pixelating-image.po) available in the languages folder.

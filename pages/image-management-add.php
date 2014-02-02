@@ -24,14 +24,14 @@ if (isset($_POST['pisg_form_submit']) && $_POST['pisg_form_submit'] == 'yes')
 	$form['pisg_path'] = isset($_POST['pisg_path']) ? $_POST['pisg_path'] : '';
 	if ($form['pisg_path'] == '')
 	{
-		$pisg_errors[] = __('Please enter the image path.', WP_pisg_UNIQUE_NAME);
+		$pisg_errors[] = __('Please enter the image path.', 'pixelating-image');
 		$pisg_error_found = TRUE;
 	}
 
 	$form['pisg_link'] = isset($_POST['pisg_link']) ? $_POST['pisg_link'] : '';
 	if ($form['pisg_link'] == '')
 	{
-		$pisg_errors[] = __('Please enter the target link.', WP_pisg_UNIQUE_NAME);
+		$pisg_errors[] = __('Please enter the target link.', 'pixelating-image');
 		$pisg_error_found = TRUE;
 	}
 	
@@ -52,7 +52,7 @@ if (isset($_POST['pisg_form_submit']) && $_POST['pisg_form_submit'] == 'yes')
 		);
 		$wpdb->query($sql);
 		
-		$pisg_success = __('New image details was successfully added.', WP_pisg_UNIQUE_NAME);
+		$pisg_success = __('New image details was successfully added.', 'pixelating-image');
 		
 		// Reset the form fields
 		$form = array(
@@ -79,35 +79,36 @@ if ($pisg_error_found == FALSE && strlen($pisg_success) > 0)
 {
 	?>
 	  <div class="updated fade">
-		<p><strong><?php echo $pisg_success; ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/admin.php?page=pixelating-image-slideshow-gallery">Click here</a> to view the details</strong></p>
+		<p><strong><?php echo $pisg_success; ?> <a href="<?php echo WP_pisg_ADMIN_URL; ?>"><?php _e('Click here to view the details', 'pixelating-image'); ?></a></strong></p>
 	  </div>
 	  <?php
 	}
 ?>
-<script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/pixelating-image-slideshow-gallery/pages/setting.js"></script>
+<script language="JavaScript" src="<?php echo WP_pisg_PLUGIN_URL; ?>/pages/setting.js"></script>
 <div class="form-wrap">
 	<div id="icon-edit" class="icon32 icon32-posts-post"><br></div>
-	<h2><?php echo WP_pisg_TITLE; ?></h2>
+	<h2><?php _e('Pixelating image slideshow', 'pixelating-image'); ?></h2>
 	<form name="pisg_form" method="post" action="#" onsubmit="return pisg_submit()"  >
-      <h3>Add new image details</h3>
-      <label for="tag-image">Enter image path (URL)</label>
+      <h3><?php _e('Add new image details', 'pixelating-image'); ?></h3>
+      <label for="tag-image"><?php _e('Enter image path (URL)', 'pixelating-image'); ?></label>
       <input name="pisg_path" type="text" id="pisg_path" value="" size="125" />
-      <p>Where is the picture located on the internet (ex: http://www.gopiplus.com/work/wp-content/uploads/pluginimages/250x167/250x167_2.jpg)</p>
-      <label for="tag-link">Enter target link</label>
-      <input name="pisg_link" type="text" id="pisg_link" value="" size="125" />
-      <p>When someone clicks on the picture, where do you want to send them</p>
-      <label for="tag-target">Select target option</label>
+      <p><?php _e('Where is the picture located on the internet', 'pixelating-image'); ?> 
+	  (ex: http://www.gopiplus.com/work/wp-content/uploads/pluginimages/250x167/250x167_2.jpg)</p>
+      <label for="tag-link"><?php _e('Enter target link', 'pixelating-image'); ?></label>
+      <input name="pisg_link" type="text" id="pisg_link" value="#" size="125" />
+      <p><?php _e('When someone clicks on the picture, where do you want to send them', 'pixelating-image'); ?></p>
+      <label for="tag-target"><?php _e('Select target option', 'pixelating-image'); ?></label>
       <select name="pisg_target" id="pisg_target">
         <option value='_blank'>_blank</option>
         <option value='_parent'>_parent</option>
         <option value='_self'>_self</option>
         <option value='_new'>_new</option>
       </select>
-      <p>Do you want to open link in new window?</p>
+      <p><?php _e('Do you want to open link in new window?', 'pixelating-image'); ?></p>
       <!--<label for="tag-title">Enter image reference</label>
       <input name="pisg_title" type="text" id="pisg_title" value="" size="125" />
       <p>Enter image reference. This is only for reference.</p>-->
-      <label for="tag-select-gallery-group">Select gallery type/group</label>
+      <label for="tag-select-gallery-group"><?php _e('Select gallery type/group', 'pixelating-image'); ?></label>
 		<select name="pisg_type" id="pisg_type">
 		<?php
 		$sSql = "SELECT distinct(pisg_type) as pisg_type FROM `".WP_pisg_TABLE."` order by pisg_type, pisg_order";
@@ -133,25 +134,28 @@ if ($pisg_error_found == FALSE && strlen($pisg_success) > 0)
 		}
 		?>
 		</select>
-      <p>This is to group the images. Select your slideshow group. </p>
-      <label for="tag-display-status">Display status</label>
+      <p><?php _e('This is to group the images. Select your slideshow group.', 'pixelating-image'); ?></p>
+      <label for="tag-display-status"><?php _e('Display status', 'pixelating-image'); ?></label>
       <select name="pisg_status" id="pisg_status">
         <option value='YES'>Yes</option>
         <option value='NO'>No</option>
       </select>
-      <p>Do you want the picture to show in your galler?</p>
-      <label for="tag-display-order">Display order</label>
-      <input name="pisg_order" type="text" id="pisg_order" size="10" value="" maxlength="3" />
-      <p>What order should the picture be played in. should it come 1st, 2nd, 3rd, etc.</p>
+      <p><?php _e('Do you want the picture to show in your galler?', 'pixelating-image'); ?></p>
+      <label for="tag-display-order"><?php _e('Display order', 'pixelating-image'); ?></label>
+      <input name="pisg_order" type="text" id="pisg_order" size="10" value="1" maxlength="3" />
+      <p><?php _e('What order should the picture be played in. should it come 1st, 2nd, 3rd, etc.', 'pixelating-image'); ?></p>
       <input name="pisg_id" id="pisg_id" type="hidden" value="">
       <input type="hidden" name="pisg_form_submit" value="yes"/>
       <p class="submit">
-        <input name="publish" lang="publish" class="button-primary" value="Insert Details" type="submit" />
-        <input name="publish" lang="publish" class="button-primary" onclick="pisg_redirect()" value="Cancel" type="button" />
-        <input name="Help" lang="publish" class="button-primary" onclick="pisg_help()" value="Help" type="button" />
+        <input name="publish" lang="publish" class="button-primary" value="<?php _e('Insert Details', 'pixelating-image'); ?>" type="submit" />
+        <input name="publish" lang="publish" class="button-primary" onclick="pisg_redirect()" value="<?php _e('Cancel', 'pixelating-image'); ?>" type="button" />
+        <input name="Help" lang="publish" class="button-primary" onclick="pisg_help()" value="<?php _e('Help', 'pixelating-image'); ?>" type="button" />
       </p>
 	  <?php wp_nonce_field('pisg_form_add'); ?>
     </form>
 </div>
-<p class="description"><?php echo WP_pisg_LINK; ?></p>
+<p class="description">
+	<?php _e('Check official website for more information', 'pixelating-image'); ?>
+	<a target="_blank" href="<?php echo WP_pisg_FAV; ?>"><?php _e('click here', 'pixelating-image'); ?></a>
+</p>
 </div>

@@ -4,7 +4,7 @@ Plugin Name: Pixelating image slideshow gallery
 Plugin URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Description: This is your normal hyperlinked image slideshow, but in IE the added images are "pixelated" into view. And its good cross browser script.  
 Author: Gopi.R
-Version: 6.0
+Version: 6.1
 Author URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Donate link: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 License: GPLv2 or later
@@ -13,24 +13,35 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 global $wpdb, $wp_version;
 define("WP_pisg_TABLE", $wpdb->prefix . "pisg_superb_gallery");
-define("WP_pisg_UNIQUE_NAME", "pisg");
-define("WP_pisg_TITLE", "Pixelating image slideshow gallery");
-define('WP_pisg_LINK', 'Check official website for more information <a target="_blank" href="http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery">click here</a>');
 define('WP_pisg_FAV', 'http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery');
+
+if ( ! defined( 'WP_pisg_BASENAME' ) )
+	define( 'WP_pisg_BASENAME', plugin_basename( __FILE__ ) );
+	
+if ( ! defined( 'WP_pisg_PLUGIN_NAME' ) )
+	define( 'WP_pisg_PLUGIN_NAME', trim( dirname( WP_pisg_BASENAME ), '/' ) );
+	
+if ( ! defined( 'WP_pisg_PLUGIN_URL' ) )
+	define( 'WP_pisg_PLUGIN_URL', WP_PLUGIN_URL . '/' . WP_pisg_PLUGIN_NAME );
+	
+if ( ! defined( 'WP_pisg_ADMIN_URL' ) )
+	define( 'WP_pisg_ADMIN_URL', get_option('siteurl') . '/wp-admin/options-general.php?page=pixelating-image-slideshow-gallery' );
 
 function pisg_show() 
 {
 	global $wpdb;
-	
+	$pisg_maxsquare = "";
+	$pisg_duration = "";
+	$pisg_slidespeed = "";	
 	$pisg_maxsquare = get_option('pisg_maxsquare');
 	$pisg_duration = get_option('pisg_duration');
 	$pisg_slidespeed = get_option('pisg_slidespeed');
 	$pisg_random = get_option('pisg_random');
 	$pisg_type = get_option('pisg_type');
 	
-	if(!is_numeric(@$pisg_maxsquare)) {	@$pisg_maxsquare = 15; } 
-	if(!is_numeric(@$pisg_duration)) { @$pisg_duration = 1; }
-	if(!is_numeric(@$pisg_slidespeed)) { @$pisg_slidespeed = 3000; }
+	if(!is_numeric($pisg_maxsquare)) {	$pisg_maxsquare = 15; } 
+	if(!is_numeric($pisg_duration)) { $pisg_duration = 1; }
+	if(!is_numeric($pisg_slidespeed)) { $pisg_slidespeed = 3000; }
 	
 	$sSql = "select pisg_path,pisg_link,pisg_target,pisg_title from ".WP_pisg_TABLE." where 1=1";
 	$sSql = $sSql . " and pisg_type='".$pisg_type."'";
@@ -104,6 +115,9 @@ function pisg_shortcode( $atts )
 	global $wpdb;
 	//[pixelating-image type="widget"]
 	
+	$pisg_maxsquare = "";
+	$pisg_duration = "";
+	$pisg_slidespeed = "";	
 	if ( ! is_array( $atts ) )
 	{
 		return '';
@@ -115,9 +129,9 @@ function pisg_shortcode( $atts )
 	$pisg_slidespeed = get_option('pisg_slidespeed');
 	$pisg_random = get_option('pisg_random');
 	
-	if(!is_numeric(@$pisg_maxsquare)) {	@$pisg_maxsquare = 15; } 
-	if(!is_numeric(@$pisg_duration)) { @$pisg_duration = 1; }
-	if(!is_numeric(@$pisg_slidespeed)) { @$pisg_slidespeed = 3000; }
+	if(!is_numeric($pisg_maxsquare)) {	$pisg_maxsquare = 15; } 
+	if(!is_numeric($pisg_duration)) { $pisg_duration = 1; }
+	if(!is_numeric($pisg_slidespeed)) { $pisg_slidespeed = 3000; }
 	
 	$sSql = "select pisg_path,pisg_link,pisg_target,pisg_title from ".WP_pisg_TABLE." where 1=1";
 	$sSql = $sSql . " and pisg_type='".$pisg_type."'";
@@ -194,19 +208,19 @@ function pisg_install()
 		$sSql = $sSql . "`pisg_type` VARCHAR( 100 ) NOT NULL ,";
 		$sSql = $sSql . "`pisg_date` INT NOT NULL ,";
 		$sSql = $sSql . "PRIMARY KEY ( `pisg_id` )";
-		$sSql = $sSql . ")";
+		$sSql = $sSql . ") ENGINE=MyISAM  DEFAULT CHARSET=utf8;";
 		$wpdb->query($sSql);
 		$sSql = "INSERT INTO `". WP_pisg_TABLE . "` (`pisg_path`, `pisg_link`, `pisg_target` , `pisg_title` , `pisg_order` , `pisg_status` , `pisg_type` , `pisg_date`)"; 
-		$sSql = $sSql . "VALUES ('".get_option('siteurl')."/wp-content/plugins/pixelating-image-slideshow-gallery/images/sing_1.jpg','#','_blank','','1', 'YES', 'WIDGET', '0000-00-00 00:00:00');";
+		$sSql = $sSql . "VALUES ('".WP_pisg_PLUGIN_URL."/images/sing_1.jpg','#','_blank','','1', 'YES', 'WIDGET', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 		$sSql = "INSERT INTO `". WP_pisg_TABLE . "` (`pisg_path`, `pisg_link`, `pisg_target` , `pisg_title` , `pisg_order` , `pisg_status` , `pisg_type` , `pisg_date`)"; 
-		$sSql = $sSql . "VALUES ('".get_option('siteurl')."/wp-content/plugins/pixelating-image-slideshow-gallery/images/sing_2.jpg','#','_blank','','2', 'YES', 'WIDGET', '0000-00-00 00:00:00');";
+		$sSql = $sSql . "VALUES ('".WP_pisg_PLUGIN_URL."/images/sing_2.jpg','#','_blank','','2', 'YES', 'WIDGET', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 		$sSql = "INSERT INTO `". WP_pisg_TABLE . "` (`pisg_path`, `pisg_link`, `pisg_target` , `pisg_title` , `pisg_order` , `pisg_status` , `pisg_type` , `pisg_date`)"; 
-		$sSql = $sSql . "VALUES ('".get_option('siteurl')."/wp-content/plugins/pixelating-image-slideshow-gallery/images/sing_3.jpg','#','_blank','','3', 'YES', 'WIDGET', '0000-00-00 00:00:00');";
+		$sSql = $sSql . "VALUES ('".WP_pisg_PLUGIN_URL."/images/sing_3.jpg','#','_blank','','3', 'YES', 'WIDGET', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 		$sSql = "INSERT INTO `". WP_pisg_TABLE . "` (`pisg_path`, `pisg_link`, `pisg_target` , `pisg_title` , `pisg_order` , `pisg_status` , `pisg_type` , `pisg_date`)"; 
-		$sSql = $sSql . "VALUES ('".get_option('siteurl')."/wp-content/plugins/pixelating-image-slideshow-gallery/images/sing_4.jpg','#','_blank','','4', 'YES', 'WIDGET', '0000-00-00 00:00:00');";
+		$sSql = $sSql . "VALUES ('".WP_pisg_PLUGIN_URL."/images/sing_4.jpg','#','_blank','','4', 'YES', 'WIDGET', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 	}
 	add_option('pisg_title', "Pixelating gallery");
@@ -256,21 +270,25 @@ function pisg_admin_option()
 
 function pisg_control()
 {
-	echo '<p>To change the setting goto <b>Pixelating image slideshow gallery</b> link under Settings menu.';
-	echo ' <a href="options-general.php?page=pixelating-image-slideshow-gallery">click here</a></p>';
-	echo WP_pisg_LINK;
+	echo '<p><b>';
+	_e('Pixelating image slideshow', 'pixelating-image');
+	echo '.</b> ';
+	_e('Check official website for more information', 'pixelating-image');
+	?> <a target="_blank" href="<?php echo WP_pisg_FAV; ?>"><?php _e('click here', 'pixelating-image'); ?></a></p><?php
 }
 
 function pisg_widget_init() 
 { 	
 	if(function_exists('wp_register_sidebar_widget')) 	
 	{
-		wp_register_sidebar_widget('Pixelating image slideshow gallery', 'Pixelating image slideshow gallery', 'pisg_widget');
+		wp_register_sidebar_widget(__('Pixelating image slideshow', 'pixelating-image'), 
+					__('Pixelating image slideshow', 'pixelating-image'), 'pisg_widget');
 	}
 	
 	if(function_exists('wp_register_widget_control')) 	
 	{
-		wp_register_widget_control('Pixelating image slideshow gallery', array('Pixelating image slideshow gallery', 'widgets'), 'pisg_control');
+		wp_register_widget_control(__('Pixelating image slideshow', 'pixelating-image'), 
+					array( __('Pixelating image slideshow', 'pixelating-image'), 'widgets'), 'pisg_control');
 	} 
 }
 
@@ -283,11 +301,17 @@ function pisg_add_to_menu()
 {
 	if (is_admin()) 
 	{
-		add_options_page('Pixelating image slideshow gallery', 'Pixelating image slideshow gallery', 'manage_options', "pixelating-image-slideshow-gallery", 'pisg_admin_option' );
-		//add_options_page('Pixelating image slideshow gallery', '', 'manage_options', "pixelating-image-slideshow-gallery/image-management.php",'' );
+		add_options_page(__('Pixelating image slideshow', 'pixelating-image'), __('Pixelating image slideshow', 'pixelating-image'), 
+					'manage_options', "pixelating-image-slideshow-gallery", 'pisg_admin_option' );
 	}
 }
 
+function pisg_textdomain() 
+{
+	  load_plugin_textdomain( 'pixelating-image', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+
+add_action('plugins_loaded', 'pisg_textdomain');
 add_action('admin_menu', 'pisg_add_to_menu');
 add_action("plugins_loaded", "pisg_widget_init");
 register_activation_hook(__FILE__, 'pisg_install');
