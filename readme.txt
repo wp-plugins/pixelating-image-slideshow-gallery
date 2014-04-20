@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-g
 Plugin URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Tags: Pixelating, image, slideshow, gallery
 Requires at least: 3.4
-Tested up to: 3.8
-Stable tag: 6.1
+Tested up to: 3.9
+Stable tag: 6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -37,7 +37,7 @@ Go to widget menu and drag and drop the Pixelating image slideshow gallery widge
 <code>&lt;?php if (function_exists (pisg_show)) pisg_show(); ?&gt;</code> 		
 
 **3. Short code option available to load the gallery into posts and pages!**
-[pixelating-image type="widget"]
+<code>[pixelating-image type="widget"]</code> 
 
 [More info](http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/)			
 
@@ -103,6 +103,10 @@ New admin look.
 2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
 Plugin *.po file (pixelating-image.po) available in the languages folder.
 
+= 6.2 =
+1. Tested up to 3.9
+2. Added a little security feature.
+
 == Upgrade Notice ==
 
 = 1.0 =		
@@ -134,3 +138,7 @@ New admin look.
 1. Tested up to 3.8
 2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
 Plugin *.po file (pixelating-image.po) available in the languages folder.
+
+= 6.2 =
+1. Tested up to 3.9
+2. Added a little security feature.
