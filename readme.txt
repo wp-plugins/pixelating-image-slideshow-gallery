@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-g
 Plugin URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Tags: Pixelating, image, slideshow, gallery
 Requires at least: 3.4
-Tested up to: 3.9
-Stable tag: 6.2
+Tested up to: 4.0
+Stable tag: 6.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -31,26 +31,17 @@ We can configure this plug-in in 2 different way.
 
 **1. Drag and drop the widget!**
 
-Go to widget menu and drag and drop the Pixelating image slideshow gallery widget to your sidebar location. <br />
+Go to widget menu and drag and drop the Pixelating image slideshow gallery widget to your sidebar location.
 
 **2. Copy and past the mentioned code to your desired template location.**		
-<code>&lt;?php if (function_exists (pisg_show)) pisg_show(); ?&gt;</code> 		
+`<?php if (function_exists (pisg_show)) pisg_show(); ?>`		
 
 **3. Short code option available to load the gallery into posts and pages!**
-<code>[pixelating-image type="widget"]</code> 
+`[pixelating-image type="widget"]` 
 
 [More info](http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/)			
 
-See the live demo!	
-
-[Demo](http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/)		
-[To see my more plugin](http://www.gopiplus.com/work/plugin-list/)		
-
-Tags: Pixelating, image, slideshow, gallery
-
 == Installation ==
-
-**Installation Instruction & Configuration**  
 
 [Installation Instruction](http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/)		
 [Configuration](http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/)	
@@ -63,7 +54,6 @@ Tags: Pixelating, image, slideshow, gallery
 3. How the slide show manages the order?				
 	
 [Answer page](http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/)			
-[Contact](http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/)	
 
 == Screenshots ==
 
@@ -107,6 +97,9 @@ Plugin *.po file (pixelating-image.po) available in the languages folder.
 1. Tested up to 3.9
 2. Added a little security feature.
 
+= 6.3 =
+1. Tested up to 4.0
+
 == Upgrade Notice ==
 
 = 1.0 =		
@@ -142,3 +135,6 @@ Plugin *.po file (pixelating-image.po) available in the languages folder.
 = 6.2 =
 1. Tested up to 3.9
 2. Added a little security feature.
+
+= 6.3 =
+1. Tested up to 4.0

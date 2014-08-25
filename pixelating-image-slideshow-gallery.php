@@ -4,7 +4,7 @@ Plugin Name: Pixelating image slideshow gallery
 Plugin URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Description: This is your normal hyperlinked image slideshow, but in IE the added images are "pixelated" into view. And its good cross browser script.  
 Author: Gopi Ramasamy
-Version: 6.2
+Version: 6.3
 Author URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Donate link: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 License: GPLv2 or later
