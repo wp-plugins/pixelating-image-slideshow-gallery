@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-g
 Plugin URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Tags: Pixelating, image, slideshow, gallery
 Requires at least: 3.4
-Tested up to: 4.1
-Stable tag: 6.4
+Tested up to: 4.2.2
+Stable tag: 6.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -103,6 +103,9 @@ Plugin *.po file (pixelating-image.po) available in the languages folder.
 = 6.4 =
 1. Tested up to 4.1
 
+= 6.5 =
+1. Tested up to 4.2.2
+
 == Upgrade Notice ==
 
 = 1.0 =		
@@ -144,3 +147,6 @@ Plugin *.po file (pixelating-image.po) available in the languages folder.
 
 = 6.4 =
 1. Tested up to 4.1
+
+= 6.5 =
+1. Tested up to 4.2.2
