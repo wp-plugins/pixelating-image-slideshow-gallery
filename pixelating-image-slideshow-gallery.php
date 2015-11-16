@@ -4,11 +4,13 @@ Plugin Name: Pixelating image slideshow gallery
 Plugin URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Description: This is your normal hyperlinked image slideshow, but in IE the added images are "pixelated" into view. And its good cross browser script.  
 Author: Gopi Ramasamy
-Version: 6.5
+Version: 6.7
 Author URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Donate link: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: pixelating-image-slideshow-gallery
+Domain Path: /languages
 */
 
 if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
@@ -110,7 +112,7 @@ function pisg_show()
     <?php
 }
 
-add_shortcode( 'pixelating-image', 'pisg_shortcode' );
+add_shortcode( 'pixelating-image-slideshow-gallery', 'pisg_shortcode' );
 
 function pisg_shortcode( $atts ) 
 {
@@ -273,24 +275,24 @@ function pisg_admin_option()
 function pisg_control()
 {
 	echo '<p><b>';
-	_e('Pixelating image slideshow', 'pixelating-image');
+	_e('Pixelating image slideshow', 'pixelating-image-slideshow-gallery');
 	echo '.</b> ';
-	_e('Check official website for more information', 'pixelating-image');
-	?> <a target="_blank" href="<?php echo WP_pisg_FAV; ?>"><?php _e('click here', 'pixelating-image'); ?></a></p><?php
+	_e('Check official website for more information', 'pixelating-image-slideshow-gallery');
+	?> <a target="_blank" href="<?php echo WP_pisg_FAV; ?>"><?php _e('click here', 'pixelating-image-slideshow-gallery'); ?></a></p><?php
 }
 
 function pisg_widget_init() 
 { 	
 	if(function_exists('wp_register_sidebar_widget')) 	
 	{
-		wp_register_sidebar_widget(__('Pixelating image slideshow', 'pixelating-image'), 
-					__('Pixelating image slideshow', 'pixelating-image'), 'pisg_widget');
+		wp_register_sidebar_widget(__('Pixelating image slideshow', 'pixelating-image-slideshow-gallery'), 
+					__('Pixelating image slideshow', 'pixelating-image-slideshow-gallery'), 'pisg_widget');
 	}
 	
 	if(function_exists('wp_register_widget_control')) 	
 	{
-		wp_register_widget_control(__('Pixelating image slideshow', 'pixelating-image'), 
-					array( __('Pixelating image slideshow', 'pixelating-image'), 'widgets'), 'pisg_control');
+		wp_register_widget_control(__('Pixelating image slideshow', 'pixelating-image-slideshow-gallery'), 
+					array( __('Pixelating image slideshow', 'pixelating-image-slideshow-gallery'), 'widgets'), 'pisg_control');
 	} 
 }
 
@@ -303,14 +305,14 @@ function pisg_add_to_menu()
 {
 	if (is_admin()) 
 	{
-		add_options_page(__('Pixelating image slideshow', 'pixelating-image'), __('Pixelating image slideshow', 'pixelating-image'), 
+		add_options_page(__('Pixelating image slideshow', 'pixelating-image-slideshow-gallery'), __('Pixelating image slideshow', 'pixelating-image-slideshow-gallery'), 
 					'manage_options', "pixelating-image-slideshow-gallery", 'pisg_admin_option' );
 	}
 }
 
 function pisg_textdomain() 
 {
-	  load_plugin_textdomain( 'pixelating-image', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	  load_plugin_textdomain( 'pixelating-image-slideshow-gallery', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 
 add_action('plugins_loaded', 'pisg_textdomain');

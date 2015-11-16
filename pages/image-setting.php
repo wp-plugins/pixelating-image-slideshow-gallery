@@ -3,8 +3,8 @@
   <div class="form-wrap">
     <div id="icon-edit" class="icon32 icon32-posts-post"><br>
     </div>
-    <h2><?php _e('Pixelating image slideshow', 'pixelating-image'); ?></h2>
-	<h3><?php _e('Widget Setting', 'pixelating-image'); ?></h3>
+    <h2><?php _e('Pixelating image slideshow', 'pixelating-image-slideshow-gallery'); ?></h2>
+	<h3><?php _e('Widget Setting', 'pixelating-image-slideshow-gallery'); ?></h3>
     <?php
 	$pisg_title = get_option('pisg_title');
 	$pisg_maxsquare = get_option('pisg_maxsquare');
@@ -34,7 +34,7 @@
 		
 		?>
 		<div class="updated fade">
-			<p><strong><?php _e('Details successfully updated.', 'pixelating-image'); ?></strong></p>
+			<p><strong><?php _e('Details successfully updated.', 'pixelating-image-slideshow-gallery'); ?></strong></p>
 		</div>
 		<?php
 	}
@@ -42,27 +42,27 @@
 	<script language="JavaScript" src="<?php echo WP_pisg_PLUGIN_URL; ?>/pages/setting.js"></script>
     <form name="pisg_form" method="post" action="">
       
-	  <label for="tag-title"><?php _e('Enter widget title', 'pixelating-image'); ?></label>
+	  <label for="tag-title"><?php _e('Enter widget title', 'pixelating-image-slideshow-gallery'); ?></label>
       <input name="pisg_title" id="pisg_title" type="text" value="<?php echo $pisg_title; ?>" size="80" />
-      <p><?php _e('Enter widget title, Only for widget.', 'pixelating-image'); ?></p>
+      <p><?php _e('Enter widget title, Only for widget.', 'pixelating-image-slideshow-gallery'); ?></p>
       
-	  <label for="tag-width"><?php _e('Max Square (Only number)', 'pixelating-image'); ?></label>
+	  <label for="tag-width"><?php _e('Max Square (Only number)', 'pixelating-image-slideshow-gallery'); ?></label>
       <input name="pisg_maxsquare" id="pisg_maxsquare" type="text" value="<?php echo $pisg_maxsquare; ?>" />
-      <p><?php _e('(only number).', 'pixelating-image'); ?> (Example: 15)</p>
+      <p><?php _e('(only number).', 'pixelating-image-slideshow-gallery'); ?> (Example: 15)</p>
       
-	  <label for="tag-height"><?php _e('Duration', 'pixelating-image'); ?></label>
+	  <label for="tag-height"><?php _e('Duration', 'pixelating-image-slideshow-gallery'); ?></label>
       <input name="pisg_duration" id="pisg_duration" type="text" value="<?php echo $pisg_duration; ?>" />
-      <p><?php _e('(only number).', 'pixelating-image'); ?> (Example: 1)</p>
+      <p><?php _e('(only number).', 'pixelating-image-slideshow-gallery'); ?> (Example: 1)</p>
 	  
-	  <label for="tag-height"><?php _e('Slide Speed', 'pixelating-image'); ?></label>
+	  <label for="tag-height"><?php _e('Slide Speed', 'pixelating-image-slideshow-gallery'); ?></label>
       <input name="pisg_slidespeed" id="pisg_slidespeed" type="text" value="<?php echo $pisg_slidespeed; ?>" />
-      <p><?php _e('Only Number / Pause time of the slideshow in milliseconds.', 'pixelating-image'); ?></p>
+      <p><?php _e('Only Number / Pause time of the slideshow in milliseconds.', 'pixelating-image-slideshow-gallery'); ?></p>
 	    
-	  <label for="tag-height"><?php _e('Random', 'pixelating-image'); ?></label>
+	  <label for="tag-height"><?php _e('Random', 'pixelating-image-slideshow-gallery'); ?></label>
       <input name="pisg_random" id="pisg_random" type="text" value="<?php echo $pisg_random; ?>" />
-      <p><?php _e('Enter : YES (or) NO', 'pixelating-image'); ?> (Example: YES)</p>
+      <p><?php _e('Enter : YES (or) NO', 'pixelating-image-slideshow-gallery'); ?> (Example: YES)</p>
       
-	  <label for="tag-height"><?php _e('Select your gallery group (Gallery  Type)', 'pixelating-image'); ?></label>
+	  <label for="tag-height"><?php _e('Select your gallery group (Gallery  Type)', 'pixelating-image-slideshow-gallery'); ?></label>
 	  <select name="pisg_type" id="pisg_type">
 	 	<?php
 		$sSql = "SELECT distinct(pisg_type) as pisg_type FROM `".WP_pisg_TABLE."` order by pisg_type, pisg_order";
@@ -88,17 +88,17 @@
 		}
 		?>
       </select>
-      <p><?php _e('This field is to group the images. Select your group name to fetch the images for widget.', 'pixelating-image'); ?></p>
+      <p><?php _e('This field is to group the images. Select your group name to fetch the images for widget.', 'pixelating-image-slideshow-gallery'); ?></p>
       <br />
-	  <input name="pisg_submit" id="pisg_submit" class="button-primary" value="<?php _e('Submit', 'pixelating-image'); ?>" type="submit" />
-	  <input name="publish" lang="publish" class="button-primary" onclick="pisg_redirect()" value="<?php _e('Cancel', 'pixelating-image'); ?>" type="button" />
-        <input name="Help" lang="publish" class="button-primary" onclick="pisg_help()" value="<?php _e('Help', 'pixelating-image'); ?>" type="button" />
+	  <input name="pisg_submit" id="pisg_submit" class="button-primary" value="<?php _e('Submit', 'pixelating-image-slideshow-gallery'); ?>" type="submit" />
+	  <input name="publish" lang="publish" class="button-primary" onclick="pisg_redirect()" value="<?php _e('Cancel', 'pixelating-image-slideshow-gallery'); ?>" type="button" />
+        <input name="Help" lang="publish" class="button-primary" onclick="pisg_help()" value="<?php _e('Help', 'pixelating-image-slideshow-gallery'); ?>" type="button" />
 	  <?php wp_nonce_field('pisg_form_setting'); ?>
     </form>
   </div>
   <br />
 <p class="description">
-	<?php _e('Check official website for more information', 'pixelating-image'); ?>
-	<a target="_blank" href="<?php echo WP_pisg_FAV; ?>"><?php _e('click here', 'pixelating-image'); ?></a>
+	<?php _e('Check official website for more information', 'pixelating-image-slideshow-gallery'); ?>
+	<a target="_blank" href="<?php echo WP_pisg_FAV; ?>"><?php _e('click here', 'pixelating-image-slideshow-gallery'); ?></a>
 </p>
 </div>

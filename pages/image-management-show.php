@@ -4,6 +4,7 @@
 if (isset($_POST['frm_pisg_display']) && $_POST['frm_pisg_display'] == 'yes')
 {
 	$did = isset($_GET['did']) ? $_GET['did'] : '0';
+	if(!is_numeric($did)) { die('<p>Are you sure you want to do this?</p>'); }
 	
 	$pisg_success = '';
 	$pisg_success_msg = FALSE;
@@ -19,7 +20,7 @@ if (isset($_POST['frm_pisg_display']) && $_POST['frm_pisg_display'] == 'yes')
 	
 	if ($result != '1')
 	{
-		?><div class="error fade"><p><strong><?php _e('Oops, selected details doesnt exist', 'pixelating-image'); ?></strong></p></div><?php
+		?><div class="error fade"><p><strong><?php _e('Oops, selected details doesnt exist', 'pixelating-image-slideshow-gallery'); ?></strong></p></div><?php
 	}
 	else
 	{
@@ -37,7 +38,7 @@ if (isset($_POST['frm_pisg_display']) && $_POST['frm_pisg_display'] == 'yes')
 			
 			//	Set success message
 			$pisg_success_msg = TRUE;
-			$pisg_success = __('Selected record was successfully deleted.', 'pixelating-image');
+			$pisg_success = __('Selected record was successfully deleted.', 'pixelating-image-slideshow-gallery');
 		}
 	}
 	
@@ -49,8 +50,8 @@ if (isset($_POST['frm_pisg_display']) && $_POST['frm_pisg_display'] == 'yes')
 ?>
 <div class="wrap">
   <div id="icon-edit" class="icon32 icon32-posts-post"></div>
-    <h2><?php _e('Pixelating image slideshow', 'pixelating-image'); ?>
-	<a class="add-new-h2" href="<?php echo WP_pisg_ADMIN_URL; ?>&amp;ac=add"><?php _e('Add New', 'pixelating-image'); ?></a></h2>
+    <h2><?php _e('Pixelating image slideshow', 'pixelating-image-slideshow-gallery'); ?>
+	<a class="add-new-h2" href="<?php echo WP_pisg_ADMIN_URL; ?>&amp;ac=add"><?php _e('Add New', 'pixelating-image-slideshow-gallery'); ?></a></h2>
     <div class="tool-box">
 	<?php
 		$sSql = "SELECT * FROM `".WP_pisg_TABLE."` order by pisg_type, pisg_order";
@@ -62,22 +63,22 @@ if (isset($_POST['frm_pisg_display']) && $_POST['frm_pisg_display'] == 'yes')
       <table width="100%" class="widefat" id="straymanage">
         <thead>
           <tr>
-            <th class="check-column" scope="row"><input type="checkbox" name="pisg_group_item[]" /></th>
-			<th scope="col"><?php _e('Type', 'pixelating-image'); ?></th>
-            <th scope="col"><?php _e('URL', 'pixelating-image'); ?></th>
-			<th scope="col"><?php _e('Target', 'pixelating-image'); ?></th>
-            <th scope="col"><?php _e('Order', 'pixelating-image'); ?></th>
-            <th scope="col"><?php _e('Display', 'pixelating-image'); ?></th>
+            <th class="check-column" scope="row" style="padding: 8px 2px;"><input type="checkbox" name="pisg_group_item[]" /></th>
+			<th scope="col"><?php _e('Type', 'pixelating-image-slideshow-gallery'); ?></th>
+            <th scope="col"><?php _e('URL', 'pixelating-image-slideshow-gallery'); ?></th>
+			<th scope="col"><?php _e('Target', 'pixelating-image-slideshow-gallery'); ?></th>
+            <th scope="col"><?php _e('Order', 'pixelating-image-slideshow-gallery'); ?></th>
+            <th scope="col"><?php _e('Display', 'pixelating-image-slideshow-gallery'); ?></th>
           </tr>
         </thead>
 		<tfoot>
           <tr>
-            <th class="check-column" scope="row"><input type="checkbox" name="pisg_group_item[]" /></th>
-			<th scope="col"><?php _e('Type', 'pixelating-image'); ?></th>
-            <th scope="col"><?php _e('URL', 'pixelating-image'); ?></th>
-			<th scope="col"><?php _e('Target', 'pixelating-image'); ?></th>
-            <th scope="col"><?php _e('Order', 'pixelating-image'); ?></th>
-            <th scope="col"><?php _e('Display', 'pixelating-image'); ?></th>
+            <th class="check-column" scope="row" style="padding: 8px 2px;"><input type="checkbox" name="pisg_group_item[]" /></th>
+			<th scope="col"><?php _e('Type', 'pixelating-image-slideshow-gallery'); ?></th>
+            <th scope="col"><?php _e('URL', 'pixelating-image-slideshow-gallery'); ?></th>
+			<th scope="col"><?php _e('Target', 'pixelating-image-slideshow-gallery'); ?></th>
+            <th scope="col"><?php _e('Order', 'pixelating-image-slideshow-gallery'); ?></th>
+            <th scope="col"><?php _e('Display', 'pixelating-image-slideshow-gallery'); ?></th>
           </tr>
         </tfoot>
 		<tbody>
@@ -93,8 +94,8 @@ if (isset($_POST['frm_pisg_display']) && $_POST['frm_pisg_display'] == 'yes')
 						<td>
 						<strong><?php echo esc_html(stripslashes($data['pisg_type'])); ?></strong>
 						<div class="row-actions">
-						<span class="edit"><a title="Edit" href="<?php echo WP_pisg_ADMIN_URL; ?>&amp;ac=edit&amp;did=<?php echo $data['pisg_id']; ?>"><?php _e('Edit', 'pixelating-image'); ?></a> | </span>
-						<span class="trash"><a onClick="javascript:pisg_delete('<?php echo $data['pisg_id']; ?>')" href="javascript:void(0);"><?php _e('Delete', 'pixelating-image'); ?></a></span> 
+						<span class="edit"><a title="Edit" href="<?php echo WP_pisg_ADMIN_URL; ?>&amp;ac=edit&amp;did=<?php echo $data['pisg_id']; ?>"><?php _e('Edit', 'pixelating-image-slideshow-gallery'); ?></a> | </span>
+						<span class="trash"><a onClick="javascript:pisg_delete('<?php echo $data['pisg_id']; ?>')" href="javascript:void(0);"><?php _e('Delete', 'pixelating-image-slideshow-gallery'); ?></a></span> 
 						</div>
 						</td>
 						<td><a href="<?php echo $data['pisg_path']; ?>" target="_blank"><?php echo $data['pisg_path']; ?></a></td>
@@ -108,7 +109,7 @@ if (isset($_POST['frm_pisg_display']) && $_POST['frm_pisg_display'] == 'yes')
 			}
 			else
 			{
-				?><tr><td colspan="6" align="center"><?php _e('No records available.', 'pixelating-image'); ?></td></tr><?php 
+				?><tr><td colspan="6" align="center"><?php _e('No records available.', 'pixelating-image-slideshow-gallery'); ?></td></tr><?php 
 			}
 			?>
 		</tbody>
@@ -118,20 +119,20 @@ if (isset($_POST['frm_pisg_display']) && $_POST['frm_pisg_display'] == 'yes')
       </form>	
 	  <div class="tablenav">
 	  <h2>
-	  <a class="button add-new-h2" href="<?php echo WP_pisg_ADMIN_URL; ?>&amp;ac=add"><?php _e('Add New', 'pixelating-image'); ?></a>
-	  <a class="button add-new-h2" href="<?php echo WP_pisg_ADMIN_URL; ?>&amp;ac=set"><?php _e('Widget Setting', 'pixelating-image'); ?></a>
-	  <a class="button add-new-h2" target="_blank" href="<?php echo WP_pisg_FAV; ?>"><?php _e('Help', 'pixelating-image'); ?></a>
+	  <a class="button add-new-h2" href="<?php echo WP_pisg_ADMIN_URL; ?>&amp;ac=add"><?php _e('Add New', 'pixelating-image-slideshow-gallery'); ?></a>
+	  <a class="button add-new-h2" href="<?php echo WP_pisg_ADMIN_URL; ?>&amp;ac=set"><?php _e('Widget Setting', 'pixelating-image-slideshow-gallery'); ?></a>
+	  <a class="button add-new-h2" target="_blank" href="<?php echo WP_pisg_FAV; ?>"><?php _e('Help', 'pixelating-image-slideshow-gallery'); ?></a>
 	  </h2>
 	  </div>
 	  <br />
-	<h3><?php _e('Plugin configuration option', 'pixelating-image'); ?></h3>
+	<h3><?php _e('Plugin configuration option', 'pixelating-image-slideshow-gallery'); ?></h3>
 	<ol>
-		<li><?php _e('Drag and drop the widget.', 'pixelating-image'); ?></li>
-		<li><?php _e('Add directly in to the theme using PHP code.', 'pixelating-image'); ?></li>
+		<li><?php _e('Drag and drop the widget.', 'pixelating-image-slideshow-gallery'); ?></li>
+		<li><?php _e('Add directly in to the theme using PHP code.', 'pixelating-image-slideshow-gallery'); ?></li>
 	</ol>
 	<p class="description">
-		<?php _e('Check official website for more information', 'pixelating-image'); ?>
-		<a target="_blank" href="<?php echo WP_pisg_FAV; ?>"><?php _e('click here', 'pixelating-image'); ?></a>
+		<?php _e('Check official website for more information', 'pixelating-image-slideshow-gallery'); ?>
+		<a target="_blank" href="<?php echo WP_pisg_FAV; ?>"><?php _e('click here', 'pixelating-image-slideshow-gallery'); ?></a>
 	</p>
 	</div>
 </div>

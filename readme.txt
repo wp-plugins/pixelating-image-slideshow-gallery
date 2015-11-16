@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-g
 Plugin URI: http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/
 Tags: Pixelating, image, slideshow, gallery
 Requires at least: 3.4
-Tested up to: 4.2.2
-Stable tag: 6.5
+Tested up to: 4.3.1
+Stable tag: 6.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -39,7 +39,12 @@ Go to widget menu and drag and drop the Pixelating image slideshow gallery widge
 **3. Short code option available to load the gallery into posts and pages!**
 `[pixelating-image type="widget"]` 
 
-[More info](http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/)			
+[More info](http://www.gopiplus.com/work/2010/10/13/pixelating-image-slideshow-gallery/)	
+
+= Translators =
+
+* English (en_EN) - [Gopi Ramasamy](http://www.gopiplus.com/)
+* Polish (pl_PL) - [Abdul Sattar](https://www.couponmachine.in/)		
 
 == Installation ==
 
@@ -106,6 +111,14 @@ Plugin *.po file (pixelating-image.po) available in the languages folder.
 = 6.5 =
 1. Tested up to 4.2.2
 
+= 6.6 =
+1. Tested up to 4.3
+2. Image upload option is added in the plugin admin. With this option you can easily upload (or select from media) your images into this plugin.
+
+= 6.7 =
+1. Tested up to 4.3.1
+2. Text Domain slug has been added for Language Packs.
+
 == Upgrade Notice ==
 
 = 1.0 =		
@@ -150,3 +163,11 @@ Plugin *.po file (pixelating-image.po) available in the languages folder.
 
 = 6.5 =
 1. Tested up to 4.2.2
+
+= 6.6 =
+1. Tested up to 4.3
+2. Image upload option is added in the plugin admin. With this option you can easily upload (or select from media) your images into this plugin.
+
+= 6.7 =
+1. Tested up to 4.3.1
+2. Text Domain slug has been added for Language Packs.
